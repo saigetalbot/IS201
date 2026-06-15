@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Saige Talbot | Accounting Student</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+html{
+    scroll-behavior:smooth;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#fff9fc;
+    color:#444;
+    line-height:1.7;
+}
+
+/* Navigation */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(12px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    z-index:1000;
+    box-shadow:0 4px 15px rgba(0,0,0,.05);
+}
+
+.logo{
+    font-family:'Playfair Display',serif;
+    font-size:1.8rem;
+    color:#d87093;
+}
+
+.nav-links{
+    display:flex;
+    gap:18px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#555;
+    font-weight:600;
+    padding:10px 16px;
+    border-radius:25px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    background:#ffe4ee;
+    color:#d87093;
+}
+
+/* Hero */
+
+header{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 20px 50px;
+    background:linear-gradient(135deg,#fff9fc,#fff0f5);
+}
+
+.hero{
+    max-width:850px;
+}
+
+.hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:5rem;
+    color:#d87093;
+}
+
+.hero h2{
+    color:#777;
+    font-weight:500;
+    margin:15px 0 25px;
+}
+
+.hero p{
+    font-size:1.1rem;
+    margin-bottom:35px;
+}
+
+.button{
+    display:inline-block;
+    background:#d87093;
+    color:white;
+    text-decoration:none;
+    padding:15px 30px;
+    border-radius:40px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.button:hover{
+    transform:translateY(-4px);
+}
+
+/* Sections */
+
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:100px 25px;
+}
+
+.section-title{
+    text-align:center;
+    color:#d87093;
+    font-family:'Playfair Display',serif;
+    font-size:2.8rem;
+    margin-bottom:50px;
+}
+
+/* Cards */
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 12px 30px rgba(216,112,147,.12);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+/* About */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+/* Skills */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.skill{
+    background:#ffe4ee;
+    color:#d87093;
+    padding:12px 20px;
+    border-radius:30px;
+    font-weight:600;
+}
+
+/* Experience */
+
+.job{
+    margin-bottom:30px;
+}
+
+.job h3{
+    color:#d87093;
+}
+
+.job span{
+    color:#888;
+    font-size:.9rem;
+}
+
+/* Contact */
+
+.contact{
+    text-align:center;
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#888;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:3rem;
+}
+
+.about{
+    grid-template-columns:1fr;
+}
+
+.nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+nav{
+    flex-direction:column;
+    gap:10px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Saige Talbot</div>
+
+    <div class="nav-links">
+        <a href="#about">About Me</a>
+        <a href="#skills">Business Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<header>
+
+    <div class="hero">
+
+        <h1>Saige Talbot</h1>
+
+        <h2>Accounting Student • Business Professional • Future CPA</h2>
+
+        <p>
+            Brigham Young University student pursuing a career in accounting and business.
+            I combine strong analytical skills, leadership experience, and business education
+            to help organizations make informed decisions and improve performance.
+        </p>
+
+        <a href="#contact" class="button">Contact Me</a>
+
+    </div>
+
+</header>
+
+<section id="about">
+
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about">
+
+        <div class="card">
+            <h3>Professional Summary</h3>
+
+            <p>
+                I am currently a Sales Support Representative at Wasatch Product Development,
+                where I analyze manufacturing and consumption data, create reports,
+                and support inventory, production, and sales planning.
+            </p>
+
+            <br>
+
+            <p>
+                Through my business education at BYU and hands-on experience,
+                I have developed strong analytical, organizational, and communication
+                skills that prepare me for a successful career in accounting.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Highlights</h3>
+
+            <p>✓ 3.8 GPA at BYU</p>
+            <p>✓ Data Analysis & Reporting Experience</p>
+            <p>✓ Leadership of 24 Volunteers</p>
+            <p>✓ Business & Accounting Coursework</p>
+            <p>✓ Fluent in English, Spanish, & French</p>
+            <p>✓ Strong Communication Skills</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="skills">
+
+    <h2 class="section-title">Business Skills</h2>
+
+    <div class="skills">
+        <div class="skill">Accounting</div>
+        <div class="skill">Financial Analysis</div>
+        <div class="skill">Microsoft Excel</div>
+        <div class="skill">Business Reporting</div>
+        <div class="skill">Data Analysis</div>
+        <div class="skill">Inventory Planning</div>
+        <div class="skill">Leadership</div>
+        <div class="skill">Problem Solving</div>
+        <div class="skill">Business Communication</div>
+        <div class="skill">Operations Support</div>
+        <div class="skill">Microsoft Office</div>
+        <div class="skill">Team Collaboration</div>
+    </div>
+
+</section>
+
+<section id="experience">
+
+    <h2 class="section-title">Experience</h2>
+
+    <div class="card">
+
+        <div class="job">
+            <h3>Sales Support Representative</h3>
+            <span>Wasatch Product Development | Jan 2026 – Present</span>
+
+            <p>
+                Compile and analyze manufacturing and consumption data for skincare products.
+                Generate reports that support inventory management, production planning,
+                and sales strategy decisions.
+            </p>
+        </div>
+
+        <div class="job">
+            <h3>Volunteer Representative & Team Leader</h3>
+            <span>San Antonio, Texas | May 2024 – Nov 2025</span>
+
+            <p>
+                Led a team of 24 volunteers, organized training meetings,
+                and developed strong leadership and communication skills
+                while working in a high-responsibility environment.
+            </p>
+        </div>
+
+        <div class="job">
+            <h3>JDRF Ambassador</h3>
+            <span>2022 – 2024</span>
+
+            <p>
+                Represented a nonprofit organization through fundraising,
+                public speaking, and community outreach efforts.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="education">
+
+    <h2 class="section-title">Education</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Brigham Young University</h3>
+
+            <p><strong>Pre-Business Student</strong></p>
+            <p>GPA: 3.8 / 4.0</p>
+
+            <br>
+
+            <p>
+                Coursework includes Accounting, Economics, Statistics,
+                Information Systems, Supply Chain Management, and Business Fundamentals.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Languages</h3>
+
+            <p>English (Fluent)</p>
+            <p>French (Fluent)</p>
+            <p>Spanish (Proficient)</p>
+
+            <br>
+
+            <p>Utah State Seal of Biliteracy Recipient</p>
+        </div>
+
+        <div class="card">
+            <h3>Awards & Leadership</h3>
+
+            <p>Top 10% of Graduating Class</p>
+            <p>Academic Excellence</p>
+            <p>FCCLA State Bronze Award</p>
+            <p>National Honor Society</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contact">
+
+    <h2 class="section-title">Contact</h2>
+
+    <div class="card contact">
+
+        <h3>Saige Talbot</h3>
+
+        <br>
+
+        <p>📧 saige@talbotkids.org</p>
+        <p>📱 (801) 556-2255</p>
+        <p>📍 Provo, Utah</p>
+
+        <br>
+
+        <p>
+            Interested in accounting, finance, business analytics,
+            and leadership development opportunities.
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Saige Talbot • Built with ♡
+</footer>
+
+</body>
+</html>

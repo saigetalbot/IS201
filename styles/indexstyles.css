@@ -1,0 +1,90 @@
+body{
+    background-color: rgb(229, 190, 195)
+}
+.hero {
+    background-image: url('https://media.self.com/photos/5f0885ffef7a10ffa6640daa/1:1/w_3929,h_3929,c_limit/travel_plane_corona.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.nav-button {
+    background-color: hotpink;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.propage {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+}
+
+
+.hero h1 {
+    font-size: 5rem;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: white;
+    font-style: italic;
+}
+
+h1{
+    text-align: center;
+    color:rgb(218, 111, 165);
+}
+
+h2{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.newport{
+    font-weight: bold;
+    text-decoration: underline;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.hawaii{
+    font-weight:bold;
+    text-decoration: underline;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.powell{
+    font-weight: bold;
+    text-decoration: underline;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.vidlink{
+    font-style: italic;
+    text-align: center;
+}
+
+.section{
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 800px;
+}
+    
+.section {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+}

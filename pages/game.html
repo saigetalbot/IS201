@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whack-a-Giraffe 🦒</title>
+
+<style>
+    body{
+        margin:0;
+        font-family: Arial, sans-serif;
+        text-align:center;
+        background: linear-gradient(to bottom, #ffe4f1, #fff8c6);
+        color:#6b4f3b;
+    }
+
+    h1{
+        margin-top:20px;
+        font-size:3rem;
+    }
+
+    #scoreboard{
+        font-size:1.5rem;
+        margin:15px;
+        font-weight:bold;
+    }
+
+    #game{
+        width:480px;
+        margin:20px auto;
+        display:grid;
+        grid-template-columns:repeat(3, 1fr);
+        gap:15px;
+    }
+
+    .hole{
+        width:140px;
+        height:140px;
+        background:#b88b6a;
+        border-radius:50%;
+        position:relative;
+        overflow:hidden;
+        cursor:pointer;
+        box-shadow:
+            inset 0 10px 15px rgba(0,0,0,.2),
+            0 5px 10px rgba(0,0,0,.15);
+    }
+
+    .giraffe{
+        position:absolute;
+        bottom:-120px;
+        width:100%;
+        font-size:80px;
+        transition:bottom .15s;
+        user-select:none;
+    }
+
+    .up{
+        bottom:15px;
+    }
+
+    button{
+        background:#ff9dc7;
+        color:white;
+        border:none;
+        padding:12px 24px;
+        font-size:1rem;
+        border-radius:25px;
+        cursor:pointer;
+        font-weight:bold;
+        margin-top:10px;
+    }
+
+    button:hover{
+        background:#ff85b7;
+    }
+
+    #message{
+        margin-top:20px;
+        font-size:1.2rem;
+        font-weight:bold;
+        color:#d45a88;
+    }
+
+    .instructions{
+        max-width:600px;
+        margin:auto;
+        padding:10px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>🦒 Whack-a-Giraffe 🦒</h1>
+
+<div id="scoreboard">
+    Score: <span id="score">0</span>
+    &nbsp; | &nbsp;
+    High Score: <span id="highScore">0</span>
+</div>
+
+<div class="instructions">
+    Click the giraffes as they pop out of their holes!
+    <br>
+    The game gets faster as your score increases.
+    <br>
+    Reaching 50 points is legendary. ✨
+</div>
+
+<button onclick="startGame()">Start Game</button>
+
+<div id="game"></div>
+
+<div id="message"></div>
+
+<script>
+
+const game = document.getElementById("game");
+const scoreDisplay = document.getElementById("score");
+const highScoreDisplay = document.getElementById("highScore");
+const messageDisplay = document.getElementById("message");
+
+let score = 0;
+let highScore = 0;
+let gameRunning = false;
+let currentSpeed = 900;
+
+// Create holes and giraffes
+for(let i = 0; i < 9; i++){
+
+    const hole = document.createElement("div");
+    hole.classList.add("hole");
+
+    const giraffe = document.createElement("div");
+    giraffe.classList.add("giraffe");
+    giraffe.innerHTML = "🦒";
+
+    giraffe.addEventListener("click", function(){
+
+        if(!giraffe.classList.contains("up")) return;
+
+        giraffe.classList.remove("up");
+
+        score++;
+        scoreDisplay.textContent = score;
+
+        if(score > highScore){
+            highScore = score;
+            highScoreDisplay.textContent = highScore;
+        }
+
+        // Difficulty progression
+        if(score < 10){
+            currentSpeed = 900;
+        }
+        else if(score < 20){
+            currentSpeed = 750;
+        }
+        else if(score < 30){
+            currentSpeed = 600;
+        }
+        else if(score < 40){
+            currentSpeed = 400;
+        }
+        else if(score < 50){
+            currentSpeed = 250;
+        }
+        else{
+            currentSpeed = 150;
+        }
+
+    });
+
+    hole.appendChild(giraffe);
+    game.appendChild(hole);
+}
+
+const giraffes = document.querySelectorAll(".giraffe");
+
+function showRandomGiraffe(){
+
+    giraffes.forEach(g => g.classList.remove("up"));
+
+    const randomIndex = Math.floor(Math.random() * giraffes.length);
+    const chosen = giraffes[randomIndex];
+
+    chosen.classList.add("up");
+
+    let visibleTime = currentSpeed * 0.8;
+
+    if(score >= 20){
+        visibleTime = currentSpeed * 0.7;
+    }
+
+    if(score >= 35){
+        visibleTime = currentSpeed * 0.55;
+    }
+
+    setTimeout(() => {
+        chosen.classList.remove("up");
+    }, visibleTime);
+}
+
+function gameLoop(){
+
+    if(!gameRunning) return;
+
+    showRandomGiraffe();
+
+    setTimeout(gameLoop, currentSpeed);
+}
+
+function startGame(){
+
+    gameRunning = false;
+
+    score = 0;
+    currentSpeed = 900;
+
+    scoreDisplay.textContent = score;
+    messageDisplay.textContent = "";
+
+    giraffes.forEach(g => g.classList.remove("up"));
+
+    setTimeout(() => {
+
+        gameRunning = true;
+        gameLoop();
+
+        // 60-second game
+        setTimeout(() => {
+
+            gameRunning = false;
+            giraffes.forEach(g => g.classList.remove("up"));
+
+            if(score < 10){
+                messageDisplay.textContent =
+                "🌱 Nice try! Final Score: " + score;
+            }
+            else if(score < 25){
+                messageDisplay.textContent =
+                "🦒 Great job! Final Score: " + score;
+            }
+            else if(score < 40){
+                messageDisplay.textContent =
+                "⚡ Amazing reflexes! Final Score: " + score;
+            }
+            else if(score < 50){
+                messageDisplay.textContent =
+                "🏆 Giraffe Master! Final Score: " + score;
+            }
+            else{
+                messageDisplay.textContent =
+                "👑 LEGEND! You reached " + score + " points!";
+            }
+
+        }, 60000);
+
+    }, 100);
+
+}
+
+</script>
+
+</body>
+</html>
